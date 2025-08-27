@@ -3,6 +3,10 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofEnableDepthTest();
+
+    cam.setPosition(200, -40, 900); //camera default position
+    cam.lookAt(glm::vec3(0,0,0)); //look at origin
+
     light.setup();
     light.setPosition(200, 200, 300);
 }
@@ -17,7 +21,14 @@ void ofApp::draw(){
     cam.begin();
     light.enable();
 
-    ofSetColor(100, 200, 100);
+    ofSetColor(70, 120, 60);
+    ofPushMatrix();
+    ofTranslate(0, -50, 0);
+    ofRotateDeg(-90, 1, 0, 0); //makes the plane flat as hell
+    ofDrawPlane(0, 0, 0, 800, 800);
+    ofPopMatrix();
+
+    ofSetColor(255, 0, 0);
     ofDrawBox(0, 0, 0, 100);
 
     light.disable();
