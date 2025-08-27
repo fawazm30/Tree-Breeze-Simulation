@@ -23,4 +23,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo) override;
 		void gotMessage(ofMessage msg) override;
 		
+		ofEasyCam cam; // 3d camera navigation heh
+		ofLight light; // 3d lighting
 };
