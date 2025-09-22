@@ -25,4 +25,6 @@ class ofApp : public ofBaseApp{
 		
 		ofEasyCam cam; // 3d camera navigation heh
 		ofLight light; // 3d lighting
+		ofMesh trunkMesh;
+    	vector<glm::vec3> trunkSpine;
 };

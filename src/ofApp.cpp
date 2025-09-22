@@ -8,7 +8,7 @@ void ofApp::setup(){
     cam.lookAt(glm::vec3(0,0,0)); //look at origin
 
     light.setup();
-    light.setPosition(200, 200, 300);
+    light.setPosition(200, 200, 300); //set up light position
 }
 
 //--------------------------------------------------------------
@@ -28,8 +28,12 @@ void ofApp::draw(){
     ofDrawPlane(0, 0, 0, 800, 800);
     ofPopMatrix();
 
-    ofSetColor(255, 0, 0);
-    ofDrawBox(0, 0, 0, 100);
+    // tree trunk base
+    ofSetColor(100, 70, 40); // brown
+    ofPushMatrix();
+    ofTranslate(0, 50, 0); // move to ground level
+    ofDrawCylinder(0, 0, 0, 30, 200); // x,y,z, radius, height
+    ofPopMatrix();
 
     light.disable();
     cam.end();
