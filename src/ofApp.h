@@ -2,6 +2,15 @@
 
 #include "ofMain.h"
 
+struct Branch {
+    vector<glm::vec3> spine;
+    ofMesh mesh;
+    vector<Branch> children;
+    float baseRadius;
+    float length;
+    int depth;
+};
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -25,6 +34,8 @@ class ofApp : public ofBaseApp{
 		
 		ofEasyCam cam; // 3d camera navigation heh
 		ofLight light; // 3d lighting
-		ofMesh trunkMesh;
-    	vector<glm::vec3> trunkSpine;
+		Branch trunk; // The whole tree!
+        void generateBranch(Branch& branch, glm::vec3 start, glm::vec3 dir, float length, float baseRadius, int depth);
+        void buildBranchMesh(Branch& branch, int sides = 10);
+        void drawBranch(const Branch& branch);
 };
